@@ -1,0 +1,18 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    </plugin-info>
+
+    <!-- need xwork with namespace /users and pointing to  -->
+
+    <xwork name="Live notifications" key="livewatch" >
+        <package name="com.shaunhare" extends="default" namesspace="/users" >
+        <action name="livewatch" class="com.shaunhare.LiveWatchAction" method="default">
+            <result name="input" type="velocity">/templates/livewatch.vm</result>
+        </action>
+            </package>
+    </xwork>
+
+</atlassian-plugin>

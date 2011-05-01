@@ -8,9 +8,9 @@
     <!-- need xwork with namespace /users and pointing to  -->
 
     <xwork name="Live notifications" key="livewatch" >
-        <package name="com.shaunhare" extends="default" namesspace="/users" >
-        <action name="livewatch" class="com.shaunhare.LiveWatchAction" method="default">
-            <result name="input" type="velocity">/templates/livewatch.vm</result>
+        <package name="com.shaunhare" extends="default" namespace="/users" >
+        <action name="livewatch" class="com.shaunhare.LiveWatchAction" >
+            <result name="success" type="velocity">/templates/livewatch.vm</result>
         </action>
             </package>
     </xwork>

@@ -10,6 +10,7 @@ import com.atlassian.confluence.mail.notification.Notification;
 import com.atlassian.confluence.mail.notification.NotificationManager;
 import com.atlassian.confluence.pages.AbstractPage;
 import com.atlassian.confluence.pages.actions.PageAware;
+import com.atlassian.confluence.renderer.radeox.macros.MacroUtils;
 import com.atlassian.confluence.security.PermissionManager;
 import com.atlassian.confluence.setup.settings.SettingsManager;
 import com.atlassian.confluence.spaces.Space;
@@ -20,6 +21,7 @@ import com.atlassian.user.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -33,15 +35,47 @@ import java.util.List;
 public class LiveWatchAction extends ConfluenceActionSupport{
 
     private UserAccessor userAccessor;
+
+    public String getBaseUrl() {
+        return baseUrl;
+    }
+
+    private String baseUrl;
+
+
+    public List<Notification> getPageNotificationsForUser() {
+        return pageNotificationsForUser;
+    }
+
+    public void setPageNotificationsForUser(List<Notification> pageNotificationsForUser) {
+        this.pageNotificationsForUser = pageNotificationsForUser;
+    }
+
+
+    public List<Notification> getSpaceNotificationsForUser() {
+        return spaceNotificationsForUser;
+    }
+
+    public void setSpaceNotificationsForUser(List<Notification> spaceNotificationsForUser) {
+        this.spaceNotificationsForUser = spaceNotificationsForUser;
+    }
+
+
+
+
+
     private List<Notification> pageNotificationsForUser;
     private List<Notification> spaceNotificationsForUser;
     private NotificationManager notificationManager;
 
-    public LiveWatchAction(UserAccessor userAccessor, NotificationManager notificationManager)
+
+
+
+    public LiveWatchAction(UserAccessor userAccessor, NotificationManager notificationManager, SettingsManager settingsManager)
     {
                this.userAccessor = userAccessor;
                this.notificationManager = notificationManager;
-
+               this.baseUrl = settingsManager.getGlobalSettings().getBaseUrl();
 
 
     }
@@ -53,11 +87,15 @@ public class LiveWatchAction extends ConfluenceActionSupport{
 
         loadNotificationsForUser();
 
+
+
         return SUCCESS;
     }
 
 
-private void loadNotificationsForUser()
+
+
+    private void loadNotificationsForUser()
     {
         User user = AuthenticatedUserThreadLocal.getUser();
         List<Notification> notificationsForUser = notificationManager.getNotificationsByUser(user);
@@ -66,12 +104,11 @@ private void loadNotificationsForUser()
 
         for (Notification notification : notificationsForUser)
         {
-            System.out.println(notification.getUserName());
 
             if (notification.getPage() != null)
             {
                 pageNotificationsForUser.add(notification);
-                System.out.println(notification.getPage().getNameForComparison());
+
             }
             else
             {

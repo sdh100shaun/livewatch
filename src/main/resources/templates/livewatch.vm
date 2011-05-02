@@ -1,1 +1,8 @@
-finally working running default?
+
+
+<ul class="pages">
+#foreach($notification in $action.getPageNotificationsForUser())
+
+        <li><a href="$action.getBaseUrl()$notification.getPage().getUrlPath()">$notification.getPage().getSpace().getName() : $notification.getPage().getDisplayTitle()</a> last modified $notification.getPage().getLastModificationDate() by $notification.getPage().getLastModifierName() </li>
+#end
+</ul>

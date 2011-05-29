@@ -57,7 +57,7 @@
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>maven-confluence-plugin</artifactId>
-                <version>3.2.3</version>
+                <version>3.3</version>
                 <extensions>true</extensions>
                 <configuration>
                     <productVersion>${confluence.version}</productVersion>
@@ -77,6 +77,10 @@
     <properties>
         <confluence.version>3.4.1</confluence.version>
         <confluence.data.version>3.1</confluence.data.version>
+        <confluence.webapp.context.path>/</confluence.webapp.context.path>
+        <confluence.webapp.port>1990</confluence.webapp.port>
+
+
     </properties>
 
 </project>

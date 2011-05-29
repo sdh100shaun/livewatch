@@ -47,7 +47,7 @@ public class LiveWatchAction extends ConfluenceActionSupport{
         return pageNotificationsForUser;
     }
 
-    public void setPageNotificationsForUser(List<Notification> pageNotificationsForUser) {
+    public void setPageNotificationsForUser(ArrayList<Notification> pageNotificationsForUser) {
         this.pageNotificationsForUser = pageNotificationsForUser;
     }
 
@@ -56,7 +56,7 @@ public class LiveWatchAction extends ConfluenceActionSupport{
         return spaceNotificationsForUser;
     }
 
-    public void setSpaceNotificationsForUser(List<Notification> spaceNotificationsForUser) {
+    public void setSpaceNotificationsForUser(ArrayList<Notification> spaceNotificationsForUser) {
         this.spaceNotificationsForUser = spaceNotificationsForUser;
     }
 
@@ -99,8 +99,7 @@ public class LiveWatchAction extends ConfluenceActionSupport{
     {
         User user = AuthenticatedUserThreadLocal.getUser();
         List<Notification> notificationsForUser = notificationManager.getNotificationsByUser(user);
-        pageNotificationsForUser = new ArrayList<Notification>();
-        spaceNotificationsForUser = new ArrayList<Notification>();
+
 
         for (Notification notification : notificationsForUser)
         {

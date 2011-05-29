@@ -100,6 +100,8 @@ public class LiveWatchAction extends ConfluenceActionSupport{
         User user = AuthenticatedUserThreadLocal.getUser();
         List<Notification> notificationsForUser = notificationManager.getNotificationsByUser(user);
 
+        pageNotificationsForUser = ListFactory.createEmptyNotificationList();
+        spaceNotificationsForUser = ListFactory.createEmptyNotificationList();
 
         for (Notification notification : notificationsForUser)
         {

@@ -16,5 +16,5 @@ public interface IListFactory  {
 
     public ArrayList<Notification> createEmptyNotificationList();
 
-    public ArrayList<String> createEmptyRestNotificationList();
+    public ArrayList<LiveWatchNotification> createEmptyRestNotificationList();
 }

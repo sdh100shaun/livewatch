@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -22,10 +23,10 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Watches {
 
-    @XmlElement(name = "item")
-        protected List<String> notifications = new ArrayList<String>();
+    @XmlElement(name = "notification")
+        protected List<LiveWatchNotification> notifications = new ArrayList<LiveWatchNotification>();
 
-        public List<String> getNotifications() {
+        public List<LiveWatchNotification> getNotifications() {
             return notifications;
         }
 
@@ -33,7 +34,7 @@ public class Watches {
 
     public Watches(){}
 
-    public Watches(List<String> notificationList)
+    public Watches(List<LiveWatchNotification> notificationList)
     {
 
         this.notifications.addAll(notificationList);

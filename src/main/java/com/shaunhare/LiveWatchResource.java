@@ -19,7 +19,6 @@ import com.atlassian.user.User;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -51,40 +50,51 @@ public class LiveWatchResource {
 
         List<Notification> watches = loadNotificationsForUser(watcher);
 
-        List<String> notificationList = listFactory.createEmptyRestNotificationList();
+        List<LiveWatchNotification> notificationList = listFactory.createEmptyRestNotificationList();
 
         for(Notification notification:watches)
         {
-            String output ="";
+             LiveWatchNotification liveWatchNotification = new LiveWatchNotification();
 
             if (notification.getPage() != null)
             {
 
 
-                output+=  notification.getPage().getSpace().getName() + " " + notification.getPage().getDisplayTitle();
+
+                liveWatchNotification.setPage(notification.getPage().getDisplayTitle());
+                liveWatchNotification.setSpace(notification.getPage().getSpace().getName());
                 if(notification.getPage().getLastModifierName()!=null)
                 {
-                    output+=  notification.getPage().getLastModifierName() + " last modified on " +notification.getPage().getLastModificationDate();
+
+                    liveWatchNotification.setLastModified(notification.getLastModificationDate().toString());
+                    liveWatchNotification.setModifiedBy(notification.getPage().getLastModifierName());
+
                 }
-                else
-                {
-                    output += " on " +notification.getPage().getLastModificationDate();
-                }
+
 
 
             }
-
             else
             {
-                output += notification.getSpace().getName();
-                output += notification.getSpace().getHomePage() + " last modified on " + notification.getPage().getLastModificationDate();
+
+                liveWatchNotification.setPage(notification.getSpace().getHomePage().getDisplayTitle());
+                liveWatchNotification.setSpace(notification.getSpace().getName());
+
+                if(notification.getSpace().getHomePage().getLastModifierName()!=null)
+                {
+
+                    liveWatchNotification.setLastModified(notification.getLastModificationDate().toString());
+                    liveWatchNotification.setModifiedBy(notification.getSpace().getHomePage().getLastModifierName());
+
+                }
 
 
             }
-            if(!output.isEmpty())
-            {
-                notificationList.add(output);
-            }
+
+
+
+                notificationList.add(liveWatchNotification);
+
         }
 
 

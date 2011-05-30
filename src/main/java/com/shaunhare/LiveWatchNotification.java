@@ -54,12 +54,12 @@ public class LiveWatchNotification {
     }
 
 
-    private String lastModified;
+    public String lastModified;
 
-    private String space;
+    public String space;
 
-    private String page;
-    private String modifiedBy;
+    public String page;
+    public String modifiedBy;
 
     public LiveWatchNotification() {
 

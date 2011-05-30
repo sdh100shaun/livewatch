@@ -23,7 +23,7 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Watches {
 
-    @XmlElement(name = "notification")
+    @XmlElement(name = "watch")
         protected List<LiveWatchNotification> notifications = new ArrayList<LiveWatchNotification>();
 
         public List<LiveWatchNotification> getNotifications() {

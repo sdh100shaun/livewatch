@@ -61,13 +61,13 @@ public class LiveWatchResource {
 
 
 
-                liveWatchNotification.setPage(notification.getPage().getDisplayTitle());
-                liveWatchNotification.setSpace(notification.getPage().getSpace().getName());
+                liveWatchNotification.page = notification.getPage().getDisplayTitle();
+                liveWatchNotification.space = notification.getPage().getSpace().getName();
                 if(notification.getPage().getLastModifierName()!=null)
                 {
 
-                    liveWatchNotification.setLastModified(notification.getLastModificationDate().toString());
-                    liveWatchNotification.setModifiedBy(notification.getPage().getLastModifierName());
+                    liveWatchNotification.lastModified = notification.getLastModificationDate().toString();
+                    liveWatchNotification.modifiedBy = notification.getPage().getLastModifierName();
 
                 }
 
@@ -77,14 +77,14 @@ public class LiveWatchResource {
             else
             {
 
-                liveWatchNotification.setPage(notification.getSpace().getHomePage().getDisplayTitle());
-                liveWatchNotification.setSpace(notification.getSpace().getName());
+                liveWatchNotification.page = notification.getSpace().getHomePage().getDisplayTitle();
+                liveWatchNotification.space = notification.getSpace().getName();
 
                 if(notification.getSpace().getHomePage().getLastModifierName()!=null)
                 {
 
-                    liveWatchNotification.setLastModified(notification.getLastModificationDate().toString());
-                    liveWatchNotification.setModifiedBy(notification.getSpace().getHomePage().getLastModifierName());
+                    liveWatchNotification.lastModified = notification.getLastModificationDate().toString();
+                    liveWatchNotification.modifiedBy = notification.getSpace().getHomePage().getLastModifierName();
 
                 }
 

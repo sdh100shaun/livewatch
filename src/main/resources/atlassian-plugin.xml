@@ -19,4 +19,9 @@
     <description>Provides a factory service for lists.</description>
    </component>
 
+
+    <rest key="rest-service-resources" path="/livewatch" version="1.0">
+        <description>Provides the REST resource for livewatch plugin.</description>
+    </rest>
+
 </atlassian-plugin>

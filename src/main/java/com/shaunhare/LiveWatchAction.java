@@ -87,8 +87,8 @@ public class LiveWatchAction extends ConfluenceActionSupport{
         ArrayList<Notification> pageNotifications = listFactory.createEmptyNotificationList();
         ArrayList<Notification> spaceNotifications = listFactory.createEmptyNotificationList();
 
-
-        loadNotificationsForUser(pageNotifications,spaceNotifications);
+        User user = AuthenticatedUserThreadLocal.getUser();
+        loadNotificationsForUser(pageNotifications,spaceNotifications,user);
 
 
 
@@ -98,14 +98,14 @@ public class LiveWatchAction extends ConfluenceActionSupport{
 
 
 
-    private void loadNotificationsForUser(ArrayList<Notification> pageNotifications, ArrayList<Notification> spaceNotifications)
+    public void loadNotificationsForUser(ArrayList<Notification> pageNotifications, ArrayList<Notification> spaceNotifications,User user)
     {
-        User user = AuthenticatedUserThreadLocal.getUser();
+
         List<Notification> notificationsForUser = notificationManager.getNotificationsByUser(user);
 
 
 
-        
+
         pageNotificationsForUser = pageNotifications;
         spaceNotificationsForUser = spaceNotifications;
 

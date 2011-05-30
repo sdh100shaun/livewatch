@@ -17,7 +17,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.atlassian.config:atlassian-config:0.13.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.atlassian.core:atlassian-core:4.5.5" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.atlassian.profiling:atlassian-profiling:1.8.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: javax.servlet:servlet-api:2.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-collections:commons-collections:3.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-io:commons-io:1.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-lang:commons-lang:2.4" level="project" />
@@ -163,6 +163,9 @@
     <orderEntry type="library" scope="TEST" name="Maven: net.sourceforge.htmlunit:htmlunit-core-js:2.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.sourceforge.jwebunit:jwebunit-core:2.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: regexp:regexp:1.3" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.atlassian.plugins.rest:atlassian-rest-common:2.5.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.ws.rs:jsr311-api:1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.xml.bind:jaxb-api:2.1" level="project" />
   </component>
 </module>
 

@@ -9,8 +9,8 @@
         last modified $notification.getPage().getLastModificationDate()
 
 
-        set($lastModifier =false);
-        $lastModifer=$notification.getPage().getLastModifierName()
+        #set($lastModifier=false)
+        #set($lastModifier=$notification.getPage().getLastModifierName())
         #if($lastModifier)
         by  $notification.getPage().getLastModifierName()
 
@@ -29,10 +29,10 @@
         :notification.getSpace().getHomePage() </a> last modified $notification.getPage().getLastModificationDate()
 
 
-        set($lastModifier=false);
-        $lastModifer=$notification.getPage().getLastModifierName()
+        #set($lastModifier=false)
+        #set($lastModifier=$notification.getPage().getLastModifierName())
         #if($lastModifier)
-        by  notification.getSpace().getLastModifierName()
+        by  $notification.getSpace().getLastModifierName()
 
         #end
 

@@ -18,4 +18,8 @@ public class ListFactory implements IListFactory{
     {
         return  new ArrayList<Notification>();
     }
+
+    public ArrayList<String> createEmptyRestNotificationList() {
+        return new ArrayList<String>();
+    }
 }

@@ -1,20 +1,22 @@
 package com.shaunhare;
 
 import com.atlassian.confluence.mail.notification.Notification;
+import com.atlassian.user.User;
 
-import java.util.ArrayList;
+
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
  * User: shaunhare
  * Date: 30/05/2011
- * Time: 09:13
+ * Time: 14:49
  * To change this template use File | Settings | File Templates.
  */
-public interface IListFactory  {
+public interface ILiveWatchResource {
 
 
-    public ArrayList<Notification> createEmptyNotificationList();
+    public List<Notification> loadNotificationsForUser(User user);
 
-    public ArrayList<String> createEmptyRestNotificationList();
 }

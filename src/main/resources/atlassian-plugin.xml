@@ -19,6 +19,9 @@
     <description>Provides a factory service for lists.</description>
    </component>
 
+    <component key="LiveWatchResource" class="com.shaunhare.LiveWatchResource" interface="com.shaunhare.ILiveWatchResource">
+    <description>Provides access to load notifications.</description>
+   </component>
 
     <rest key="rest-service-resources" path="/livewatch" version="1.0">
         <description>Provides the REST resource for livewatch plugin.</description>

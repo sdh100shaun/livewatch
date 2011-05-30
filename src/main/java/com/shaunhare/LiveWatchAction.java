@@ -36,29 +36,6 @@ public class LiveWatchAction extends ConfluenceActionSupport{
 
     private UserAccessor userAccessor;
 
-    public String getBaseUrl() {
-        return baseUrl;
-    }
-
-    private String baseUrl;
-
-
-    public List<Notification> getPageNotificationsForUser() {
-        return pageNotificationsForUser;
-    }
-
-    public void setPageNotificationsForUser(ArrayList<Notification> pageNotificationsForUser) {
-        this.pageNotificationsForUser = pageNotificationsForUser;
-    }
-
-
-    public List<Notification> getSpaceNotificationsForUser() {
-        return spaceNotificationsForUser;
-    }
-
-    public void setSpaceNotificationsForUser(ArrayList<Notification> spaceNotificationsForUser) {
-        this.spaceNotificationsForUser = spaceNotificationsForUser;
-    }
 
 
 
@@ -67,7 +44,37 @@ public class LiveWatchAction extends ConfluenceActionSupport{
     private List<Notification> pageNotificationsForUser;
     private List<Notification> spaceNotificationsForUser;
     private NotificationManager notificationManager;
+
+    public void setListFactory(IListFactory listFactory) {
+        this.listFactory = listFactory;
+    }
+
     private IListFactory listFactory;
+
+
+    public String getBaseUrl() {
+            return baseUrl;
+        }
+
+        private String baseUrl;
+
+
+        public List<Notification> getPageNotificationsForUser() {
+            return pageNotificationsForUser;
+        }
+
+        public void setPageNotificationsForUser(ArrayList<Notification> pageNotificationsForUser) {
+            this.pageNotificationsForUser = pageNotificationsForUser;
+        }
+
+
+        public List<Notification> getSpaceNotificationsForUser() {
+            return spaceNotificationsForUser;
+        }
+
+        public void setSpaceNotificationsForUser(ArrayList<Notification> spaceNotificationsForUser) {
+            this.spaceNotificationsForUser = spaceNotificationsForUser;
+        }
 
 
 
@@ -76,19 +83,17 @@ public class LiveWatchAction extends ConfluenceActionSupport{
                this.userAccessor = userAccessor;
                this.notificationManager = notificationManager;
                this.baseUrl = settingsManager.getGlobalSettings().getBaseUrl();
-               this.listFactory=listFactory;
-
+               this.listFactory = listFactory;
 
     }
 
     public String execute()
     {
-
-        ArrayList<Notification> pageNotifications = listFactory.createEmptyNotificationList();
-        ArrayList<Notification> spaceNotifications = listFactory.createEmptyNotificationList();
-
         User user = AuthenticatedUserThreadLocal.getUser();
-        loadNotificationsForUser(pageNotifications,spaceNotifications,user);
+        pageNotificationsForUser = listFactory.createEmptyNotificationList();
+        spaceNotificationsForUser = listFactory.createEmptyNotificationList();
+
+        loadNotificationsForUser(user);
 
 
 
@@ -98,16 +103,12 @@ public class LiveWatchAction extends ConfluenceActionSupport{
 
 
 
-    public void loadNotificationsForUser(ArrayList<Notification> pageNotifications, ArrayList<Notification> spaceNotifications,User user)
+    private void loadNotificationsForUser(User user)
     {
 
         List<Notification> notificationsForUser = notificationManager.getNotificationsByUser(user);
 
 
-
-
-        pageNotificationsForUser = pageNotifications;
-        spaceNotificationsForUser = spaceNotifications;
 
         for (Notification notification : notificationsForUser)
         {

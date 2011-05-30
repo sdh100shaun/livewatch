@@ -23,9 +23,9 @@ import java.util.List;
 public class Watches {
 
     @XmlElement(name = "item")
-        protected final List<Notification> notifications = new ArrayList<Notification>();
+        protected List<String> notifications = new ArrayList<String>();
 
-        public List<Notification> getNotifications() {
+        public List<String> getNotifications() {
             return notifications;
         }
 
@@ -33,7 +33,7 @@ public class Watches {
 
     public Watches(){}
 
-    public Watches(List<Notification> notificationList)
+    public Watches(List<String> notificationList)
     {
 
         this.notifications.addAll(notificationList);

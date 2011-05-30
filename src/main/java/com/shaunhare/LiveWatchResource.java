@@ -45,7 +45,9 @@ public class LiveWatchResource {
     public Response getWatchesFromPath(@PathParam("user") String user)
     {
 
-        User watcher  = userAccessor.getUser(user);
+        try{
+            User watcher  = userAccessor.getUser(user);
+
 
         List<Notification> watches = loadNotificationsForUser(watcher);
 
@@ -53,22 +55,45 @@ public class LiveWatchResource {
 
         for(Notification notification:watches)
         {
+            String output ="";
 
             if (notification.getPage() != null)
             {
 
-                String output ="";
-                output+=  notification.getPage().getSpace().getName() + " " + notification.getPage().getDisplayTitle();
-                output+= notification.getPage().getLastModifierName() + " on " +notification.getPage().getLastModificationDate();
 
-                notificationList.add(output);
+                output+=  notification.getPage().getSpace().getName() + " " + notification.getPage().getDisplayTitle();
+                if(notification.getPage().getLastModifierName()!=null)
+                {
+                    output+=  notification.getPage().getLastModifierName() + " last modified on " +notification.getPage().getLastModificationDate();
+                }
+                else
+                {
+                    output += " on " +notification.getPage().getLastModificationDate();
+                }
+
 
             }
 
+            else
+            {
+                output += notification.getSpace().getName();
+                output += notification.getSpace().getHomePage() + " last modified on " + notification.getPage().getLastModificationDate();
+
+
+            }
+            if(!output.isEmpty())
+            {
+                notificationList.add(output);
+            }
         }
 
 
         return Response.ok(new Watches(notificationList)).build();
+        }
+        catch(Exception exception)
+        {
+            return Response.noContent().build();
+        }
     }
 
 

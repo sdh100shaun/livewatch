@@ -124,6 +124,8 @@ public class LiveWatchAction extends ConfluenceActionSupport{
             {
                 spaceNotificationsForUser.add(notification);
             }
+
+
         }
     }
 

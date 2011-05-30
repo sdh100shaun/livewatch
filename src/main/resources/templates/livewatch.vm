@@ -25,8 +25,8 @@
 <ul class="spaces">
 #foreach($notification in $action.getSpaceNotificationsForUser())
 
-        <li><a href="$action.getBaseUrl()$notification.getPage().getUrlPath()">notification.getSpace().getName()
-        :notification.getSpace().getHomePage() </a> last modified $notification.getPage().getLastModificationDate()
+        <li><a href="$action.getBaseUrl()$notification.getSpace().getHomePage.getUrlPath()">$notification.getSpace().getName()
+        :$notification.getSpace().getHomePage() </a> last modified $notification.getPage().getLastModificationDate()
 
 
         #set($lastModifier=false)

@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Testing {@link com.shaunhare.LiveWatchAction}
  */
-public class LiveWatchTestSuite
+public class LiveWatchTestCase
 {
     @Test
     public void LoadNotificationsForUserReturnsLists_whenNotifications()

@@ -67,15 +67,16 @@ public class LiveWatchAction extends ConfluenceActionSupport{
     private List<Notification> pageNotificationsForUser;
     private List<Notification> spaceNotificationsForUser;
     private NotificationManager notificationManager;
+    private IListFactory listFactory;
 
 
 
-
-    public LiveWatchAction(UserAccessor userAccessor, NotificationManager notificationManager, SettingsManager settingsManager)
+    public LiveWatchAction(UserAccessor userAccessor, NotificationManager notificationManager, SettingsManager settingsManager,IListFactory listFactory)
     {
                this.userAccessor = userAccessor;
                this.notificationManager = notificationManager;
                this.baseUrl = settingsManager.getGlobalSettings().getBaseUrl();
+               this.listFactory=listFactory;
 
 
     }
@@ -83,9 +84,11 @@ public class LiveWatchAction extends ConfluenceActionSupport{
     public String execute()
     {
 
+        ArrayList<Notification> pageNotifications = listFactory.createEmptyNotificationList();
+        ArrayList<Notification> spaceNotifications = listFactory.createEmptyNotificationList();
 
 
-        loadNotificationsForUser();
+        loadNotificationsForUser(pageNotifications,spaceNotifications);
 
 
 
@@ -95,16 +98,21 @@ public class LiveWatchAction extends ConfluenceActionSupport{
 
 
 
-    private void loadNotificationsForUser()
+    private void loadNotificationsForUser(ArrayList<Notification> pageNotifications, ArrayList<Notification> spaceNotifications)
     {
         User user = AuthenticatedUserThreadLocal.getUser();
         List<Notification> notificationsForUser = notificationManager.getNotificationsByUser(user);
 
-        pageNotificationsForUser = ListFactory.createEmptyNotificationList();
-        spaceNotificationsForUser = ListFactory.createEmptyNotificationList();
+
+
+        
+        pageNotificationsForUser = pageNotifications;
+        spaceNotificationsForUser = spaceNotifications;
 
         for (Notification notification : notificationsForUser)
         {
+
+
 
             if (notification.getPage() != null)
             {

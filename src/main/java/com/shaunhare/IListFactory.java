@@ -7,15 +7,12 @@ import java.util.ArrayList;
 /**
  * Created by IntelliJ IDEA.
  * User: shaunhare
- * Date: 29/05/2011
- * Time: 11:09
+ * Date: 30/05/2011
+ * Time: 09:13
  * To change this template use File | Settings | File Templates.
  */
-public class ListFactory implements IListFactory{
+public interface IListFactory  {
 
 
-    public ArrayList<Notification> createEmptyNotificationList()
-    {
-        return  new ArrayList<Notification>();
-    }
+    public ArrayList<Notification> createEmptyNotificationList();
 }

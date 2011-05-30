@@ -15,4 +15,8 @@
             </package>
     </xwork>
 
+    <component key="ListFactory" class="com.shaunhare.ListFactory" interface="com.shaunhare.IListFactory">
+    <description>Provides a factory service for lists.</description>
+   </component>
+
 </atlassian-plugin>

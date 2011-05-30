@@ -1,6 +1,10 @@
 package com.shaunhare;
 
-import javax.xml.bind.annotation.XmlValue;
+
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.annotate.JsonValue;
+
 import java.io.Serializable;
 
 /**
@@ -10,17 +14,20 @@ import java.io.Serializable;
  * Time: 17:01
  * To change this template use File | Settings | File Templates.
  */
+@JsonAutoDetect
 public class LiveWatchNotification {
 
-
+    @JsonProperty
     public String getLastModified() {
         return lastModified;
     }
+
 
     public void setLastModified(String lastModified) {
         this.lastModified = lastModified;
     }
 
+    @JsonProperty
     public String getSpace() {
         return space;
     }
@@ -28,7 +35,7 @@ public class LiveWatchNotification {
     public void setSpace(String space) {
         this.space = space;
     }
-
+    @JsonProperty
     public String getPage() {
         return page;
     }
@@ -37,6 +44,7 @@ public class LiveWatchNotification {
         this.page = page;
     }
 
+    @JsonProperty
     public String getModifiedBy() {
         return modifiedBy;
     }
@@ -47,7 +55,9 @@ public class LiveWatchNotification {
 
 
     private String lastModified;
+
     private String space;
+
     private String page;
     private String modifiedBy;
 

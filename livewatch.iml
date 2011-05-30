@@ -166,6 +166,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.atlassian.plugins.rest:atlassian-rest-common:2.5.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.ws.rs:jsr311-api:1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.xml.bind:jaxb-api:2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.1.0" level="project" />
   </component>
 </module>
 

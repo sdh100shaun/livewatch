@@ -1754,6 +1754,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk15/1.44/bcprov-jdk15-1.44-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.codehaus.jackson:jackson-core-asl:1.1.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.1.0/jackson-core-asl-1.1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.1.0/jackson-core-asl-1.1.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.1.0/jackson-core-asl-1.1.0-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.codehaus.woodstox:wstx-asl:3.2.4">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/wstx-asl/3.2.4/wstx-asl-3.2.4.jar!/" />
